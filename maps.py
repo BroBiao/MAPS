@@ -84,8 +84,8 @@ class Metamask(object):
             # unselect all account
             WebDriverWait(self.driver, 3).until(EC.element_to_be_clickable((By.XPATH, 
                 '//input[@data-testid="choose-account-list-operate-all-check-box"]'))).click()
-            latest_account = self.driver.find_elements(By.CSS_SELECTOR, '.check-box.choose-account-list__list-check-box.far.fa-square')[index]
-            latest_account.click()
+            target_account = self.driver.find_elements(By.CSS_SELECTOR, '.check-box.choose-account-list__list-check-box.far.fa-square')[index]
+            target_account.click()
         else:
             pass
         WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//button[normalize-space()="下一步"]'))).click()
@@ -159,7 +159,6 @@ class Metamask(object):
             WebDriverWait(self.driver, 3).until(EC.element_to_be_clickable((By.XPATH, '//button[@aria-label="账户选项"]'))).click()
         WebDriverWait(self.driver, 3).until(EC.element_to_be_clickable((By.XPATH, 
             '//button[@data-testid="global-menu-connected-sites"]'))).click()
-        return
         WebDriverWait(self.driver, 3).until(EC.element_to_be_clickable((By.XPATH, f'//a[normalize-space()="断开连接"]'))).click()
         WebDriverWait(self.driver, 3).until(EC.element_to_be_clickable((By.XPATH, '//button[normalize-space()="断开连接"]'))).click()
 
